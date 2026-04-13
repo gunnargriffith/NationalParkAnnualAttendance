@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+#The downloads folder
+downloads/
+
 .env
 
 # Distribution / packaging
