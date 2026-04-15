@@ -9,7 +9,8 @@ dependencies = [
     "requests",
     "python-dotenv",
     "pandas",
-    "selenium"
+    "selenium",
+    "ipykernel>=7.2.0",
 ]
 
 [tool.uv]
