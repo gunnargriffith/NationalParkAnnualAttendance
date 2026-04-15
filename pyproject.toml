@@ -1,0 +1,16 @@
+[project]
+name = "NationalParKData"
+version = "0.1.0"
+description = "Data set made from combining the National Park API data and scrapped annual attendence"
+readme = "README.md"
+requires-python = ">=3.14"
+
+dependencies = [
+    "requests",
+    "python-dotenv",
+    "pandas",
+    "selenium"
+]
+
+[tool.uv]
+dev-dependencies = []
