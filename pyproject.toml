@@ -1,12 +1,18 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "nationalparksdata"
 version = "0.1.0"
 description = "National Park attendance data scraper and dataset builder"
 readme = "README.md"
 requires-python = ">=3.10"
-license = {text = "MIT"}
+license = { text = "MIT" }
+
 authors = [
-  {name = "Gunnar Griffith", "Elijah Barnes"}
+  { name = "Gunnar Griffith" },
+  { name = "Elijah Barnes" }
 ]
 
 dependencies = [
@@ -15,7 +21,7 @@ dependencies = [
     "pandas",
     "selenium",
     "ipykernel>=7.2.0",
-    "seaborn>=0.13.2",
+    "seaborn>=0.13.2"
 ]
 
 [tool.uv]
