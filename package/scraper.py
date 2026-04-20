@@ -13,8 +13,11 @@ def run_scraper():
     import shutil
     import requests
     from dotenv import load_dotenv
+    from pathlib import Path
+    import json
 
     # Load environment variables from .env
+    print("HIT")
     load_dotenv()
     api_key = os.getenv('API_KEY')
 
@@ -30,11 +33,17 @@ def run_scraper():
     if r.status_code != 200:
         print(f"Error: Received status code {r.status_code}")
 
+    # Create path to data folder
+    data_path = Path("data")
+    data_path.mkdir(exist_ok=True)  # ensures folder exists
+
     #Make the df as needed
     df = pd.json_normalize(data['data'])
     df = df[df['fullName'].str.contains("National Park")]
     df = df[df['parkCode'] != 'npnh'] #Not a park, but a collection of sites (NO POPULATION)
     df = df[df['parkCode'] != 'seki'] #Not a park, but a collection of sites (NO POPULATION)
+
+    df.to_csv(data_path / "base_data.csv", index=False)
 
     CSVDictionary = {}
 
@@ -132,16 +141,8 @@ def run_scraper():
 
         os.remove(file_path)
 
-
-    from pathlib import Path
-    import json
-
-    # Create path to data folder
-    data_path = Path("data")
-    data_path.mkdir(exist_ok=True)  # ensures folder exists
-
     # Save dataframe
-    df.to_csv(data_path / "parks_df.csv", index=False)
+    #df.to_csv(data_path / "base_data.csv", index=False)
 
     # Convert dictionary safely
     safe_dict = {

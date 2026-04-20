@@ -5,7 +5,10 @@ def build_dataset(save=True):
     import pandas as pd
     import json
 
-    data_path = Path("data")
+    #data_path = Path("data")
+
+    BASE_DIR = Path(__file__).resolve().parent.parent
+    data_path = BASE_DIR / "data"
 
     base_df = pd.read_csv(data_path / "base_data.csv")
 
