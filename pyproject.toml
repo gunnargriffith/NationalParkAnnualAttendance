@@ -1,9 +1,13 @@
 [project]
-name = "NationalParKData"
+name = "nationalparksdata"
 version = "0.1.0"
-description = "Data set made from combining the National Park API data and scrapped annual attendence"
+description = "National Park attendance data scraper and dataset builder"
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+  {name = "Gunnar Griffith", "Elijah Barnes"}
+]
 
 dependencies = [
     "requests",
