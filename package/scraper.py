@@ -159,4 +159,4 @@ def run_scraper():
 
 
 
-run_scraper()
+#run_scraper()
