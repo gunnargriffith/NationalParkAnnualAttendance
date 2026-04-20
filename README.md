@@ -1,2 +1,5 @@
 # National Parks Project
-Group Project for Stat 386. We are attempting to use the National Park API and scraped population data to analysis growth
+This repository is designed to combine a National Parks ADI dataset with scraped park attendance information to create a new dataset for analysis.
+
+# File Descriptions:
+

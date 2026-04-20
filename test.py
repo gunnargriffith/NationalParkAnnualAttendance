@@ -1,4 +1,4 @@
-from package import refresh_dataset
+from nationalparksdata import refresh_dataset
 
 print("Running test..")
 df = refresh_dataset()

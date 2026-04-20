@@ -17,7 +17,7 @@ def run_scraper():
     import json
 
     # Load environment variables from .env
-    print("HIT")
+    #print("HIT")
     load_dotenv()
     api_key = os.getenv('API_KEY')
 
