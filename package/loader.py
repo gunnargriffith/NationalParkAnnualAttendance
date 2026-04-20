@@ -1,6 +1,6 @@
 #Loads in the files back to a dictionary and dataframe for analysis
 
-def load_data():
+def build_dataset(save=True):
     from pathlib import Path
     import pandas as pd
     import json
@@ -58,7 +58,10 @@ def load_data():
         col_name = f'activity_{activity.replace(" ", "_")}'
         combined_df[col_name] = combined_df['activities'].apply(lambda x: 1 if isinstance(x, str) and activity in x.lower() else 0)
 
-    combined_df.to_csv(data_path/'final.csv', index=False)
+    if save:
+        combined_df.to_csv(data_path / "final.csv", index=False)
+
+    return combined_df
 
 
-#load_data()
+#build_dataset()
