@@ -9,12 +9,12 @@ st.title("National Park Attendance & Activities Explorer")
 # Page selector
 page = st.sidebar.radio(
     "Choose a page:",
-    ["Yearly Attendance Explorer", "Activity-Based Park Explorer"]
+    ["Yearly Attendance Explorer", "Activity-Based Park Explorer", "Park Activity Lookup"]
 )
 
 # Load data
 def load_data():
-    df = pd.read_csv('final.csv')
+    df = pd.read_csv('data/final.csv')
     # Clean up numeric columns
     for col in ['total visits', 'annual visits']:
         if col in df.columns:
@@ -90,5 +90,23 @@ elif page == "Activity-Based Park Explorer":
         st.pyplot(fig_act)
     else:
         st.info("No parks match the selected activities.")
+
+elif page == "Park Activity Lookup":
+    st.header("Park Activity Lookup")
+    park_names = sorted(df['fullName'].dropna().unique())
+    selected_park = st.selectbox("Select a park:", park_names)
+    if selected_park:
+        park_row = df[df['fullName'] == selected_park].iloc[0]
+        offered = [
+            col.replace('activity_', '').replace('_', ' ').title()
+            for col in activity_cols
+            if park_row[col] == 1
+        ]
+        if offered:
+            st.subheader(f"Activities offered at {selected_park}")
+            for act in sorted(offered):
+                st.markdown(f"- {act}")
+        else:
+            st.info("No activities listed for this park.")
 
 
