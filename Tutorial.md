@@ -26,39 +26,20 @@ Before installing, make sure you have:
 * Internet connection
 * A National Park Service API key
 
----
 
-# Step 1: Download the Repository
+# Step 1: Install the Package
 
-Clone the repository:
-
-```bash
-git clone https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git
-```
-
-Then move into the project folder:
+From inside the folder you want to save the data, run:
 
 ```bash
-cd YOUR-REPO-NAME
-```
-
-Or download the ZIP manually from GitHub and extract it.
-
----
-
-# Step 2: Install the Package
-
-From inside the project folder, run:
-
-```bash
-pip install .
+pip install nationalparksdata
 ```
 
 This installs the package locally.
 
 ---
 
-# Step 3: Get an API Key
+# Step 2: Get an API Key
 
 This project uses the National Park Service API.
 
@@ -68,7 +49,7 @@ https://www.nps.gov/subjects/developer/get-started.htm
 
 ---
 
-# Step 4: Create a `.env` File
+# Step 3: Create a `.env` File
 
 Inside the project folder, create a file named:
 
@@ -90,7 +71,7 @@ API_KEY=abc123xyz456
 
 ---
 
-# Step 5: Run the Package
+# Step 4: Run the Package
 
 ## Option A: Full Refresh (Recommended)
 
