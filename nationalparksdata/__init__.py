@@ -1,5 +1,6 @@
 from .scraper import run_scraper
 from .loader import build_dataset
+from eda import parks_with_activity
 
 
 def refresh_dataset(save=True):
@@ -13,5 +14,6 @@ def refresh_dataset(save=True):
 __all__ = [
     "run_scraper",
     "build_dataset",
-    "refresh_dataset"
+    "refresh_dataset",
+    "parks_with_activity"
 ]
