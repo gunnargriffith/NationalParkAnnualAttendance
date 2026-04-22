@@ -123,7 +123,7 @@ run_scraper()
 By passing a comma separated list of activities, the function will find the parks with all listed activities.
 ```python
 from nationalparksdata import parks_with_activity
-parks_with_activity(*activities)
+parks_with_activity('horseback riding', 'hiking')
 ```
 
 
