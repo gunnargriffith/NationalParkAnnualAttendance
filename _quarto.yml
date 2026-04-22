@@ -11,7 +11,7 @@ website:
     right:
       - href: https://github.com/gunnargriffith/NationalParkAnnualAttendance
         text: GitHub Repo
-      - href: tutorial.qmd
+      - href: tutorial.md
         text: Tutorial
 
 format:
