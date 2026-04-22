@@ -134,6 +134,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/gunnargriffith/NationalParkAnnualAttendance"> 
+<span class="menu-text">GitHub Repo</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./tutorial.qmd"> 
+<span class="menu-text">Tutorial</span></a>
+  </li>  
+</ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
@@ -152,16 +162,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#tutorial-installing-and-running-nationalparksdata" id="toc-tutorial-installing-and-running-nationalparksdata" class="nav-link active" data-scroll-target="#tutorial-installing-and-running-nationalparksdata">Tutorial: Installing and Running <code>nationalparksdata</code></a></li>
   <li><a href="#what-this-package-does" id="toc-what-this-package-does" class="nav-link" data-scroll-target="#what-this-package-does">What This Package Does</a></li>
   <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
-  <li><a href="#step-1-download-the-repository" id="toc-step-1-download-the-repository" class="nav-link" data-scroll-target="#step-1-download-the-repository">Step 1: Download the Repository</a></li>
-  <li><a href="#step-2-install-the-package" id="toc-step-2-install-the-package" class="nav-link" data-scroll-target="#step-2-install-the-package">Step 2: Install the Package</a></li>
-  <li><a href="#step-3-get-an-api-key" id="toc-step-3-get-an-api-key" class="nav-link" data-scroll-target="#step-3-get-an-api-key">Step 3: Get an API Key</a></li>
-  <li><a href="#step-4-create-a-.env-file" id="toc-step-4-create-a-.env-file" class="nav-link" data-scroll-target="#step-4-create-a-.env-file">Step 4: Create a <code>.env</code> File</a></li>
-  <li><a href="#step-5-run-the-package" id="toc-step-5-run-the-package" class="nav-link" data-scroll-target="#step-5-run-the-package">Step 5: Run the Package</a>
+  <li><a href="#step-1-install-the-package" id="toc-step-1-install-the-package" class="nav-link" data-scroll-target="#step-1-install-the-package">Step 1: Install the Package</a></li>
+  <li><a href="#step-2-get-an-api-key" id="toc-step-2-get-an-api-key" class="nav-link" data-scroll-target="#step-2-get-an-api-key">Step 2: Get an API Key</a></li>
+  <li><a href="#step-3-create-a-.env-file" id="toc-step-3-create-a-.env-file" class="nav-link" data-scroll-target="#step-3-create-a-.env-file">Step 3: Create a <code>.env</code> File</a></li>
+  <li><a href="#step-4-run-the-package" id="toc-step-4-run-the-package" class="nav-link" data-scroll-target="#step-4-run-the-package">Step 4: Run the Package</a>
   <ul class="collapse">
   <li><a href="#option-a-full-refresh-recommended" id="toc-option-a-full-refresh-recommended" class="nav-link" data-scroll-target="#option-a-full-refresh-recommended">Option A: Full Refresh (Recommended)</a></li>
   <li><a href="#option-b-build-dataset-from-existing-files-only" id="toc-option-b-build-dataset-from-existing-files-only" class="nav-link" data-scroll-target="#option-b-build-dataset-from-existing-files-only">Option B: Build Dataset From Existing Files Only</a></li>
   <li><a href="#option-c-run-scraper-only" id="toc-option-c-run-scraper-only" class="nav-link" data-scroll-target="#option-c-run-scraper-only">Option C: Run Scraper Only</a></li>
   </ul></li>
+  <li><a href="#option-d-find-parks-with-certain-activities" id="toc-option-d-find-parks-with-certain-activities" class="nav-link" data-scroll-target="#option-d-find-parks-with-certain-activities">Option D: Find Parks With Certain Activities</a></li>
   <li><a href="#output-files" id="toc-output-files" class="nav-link" data-scroll-target="#output-files">Output Files</a></li>
   <li><a href="#using-in-jupyter-notebook" id="toc-using-in-jupyter-notebook" class="nav-link" data-scroll-target="#using-in-jupyter-notebook">Using in Jupyter Notebook</a></li>
   <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a>
@@ -208,33 +218,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Internet connection</li>
 <li>A National Park Service API key</li>
 </ul>
-<hr>
 </section>
-<section id="step-1-download-the-repository" class="level1">
-<h1>Step 1: Download the Repository</h1>
-<p>Clone the repository:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Then move into the project folder:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> YOUR-REPO-NAME</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Or download the ZIP manually from GitHub and extract it.</p>
-<hr>
-</section>
-<section id="step-2-install-the-package" class="level1">
-<h1>Step 2: Install the Package</h1>
-<p>From inside the project folder, run:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="step-1-install-the-package" class="level1">
+<h1>Step 1: Install the Package</h1>
+<p>From inside the folder you want to save the data, run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install nationalparksdata</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This installs the package locally.</p>
 <hr>
 </section>
-<section id="step-3-get-an-api-key" class="level1">
-<h1>Step 3: Get an API Key</h1>
+<section id="step-2-get-an-api-key" class="level1">
+<h1>Step 2: Get an API Key</h1>
 <p>This project uses the National Park Service API.</p>
 <p>Get a free API key from:</p>
 <p>https://www.nps.gov/subjects/developer/get-started.htm</p>
 <hr>
 </section>
-<section id="step-4-create-a-.env-file" class="level1">
-<h1>Step 4: Create a <code>.env</code> File</h1>
+<section id="step-3-create-a-.env-file" class="level1">
+<h1>Step 3: Create a <code>.env</code> File</h1>
 <p>Inside the project folder, create a file named:</p>
 <pre class="text"><code>.env</code></pre>
 <p>Add this line:</p>
@@ -243,38 +243,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre class="text"><code>API_KEY=abc123xyz456</code></pre>
 <hr>
 </section>
-<section id="step-5-run-the-package" class="level1">
-<h1>Step 5: Run the Package</h1>
+<section id="step-4-run-the-package" class="level1">
+<h1>Step 4: Run the Package</h1>
 <section id="option-a-full-refresh-recommended" class="level2">
 <h2 class="anchored" data-anchor-id="option-a-full-refresh-recommended">Option A: Full Refresh (Recommended)</h2>
 <p>Runs scraper + builds final dataset.</p>
 <p>Create a Python file:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nationalparksdata <span class="im">import</span> refresh_dataset</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> refresh_dataset()</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nationalparksdata <span class="im">import</span> refresh_dataset</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> refresh_dataset()</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Run:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> your_file.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> your_file.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="option-b-build-dataset-from-existing-files-only" class="level2">
 <h2 class="anchored" data-anchor-id="option-b-build-dataset-from-existing-files-only">Option B: Build Dataset From Existing Files Only</h2>
 <p>If raw files already exist:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nationalparksdata <span class="im">import</span> build_dataset</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> build_dataset()</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nationalparksdata <span class="im">import</span> build_dataset</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> build_dataset()</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="option-c-run-scraper-only" class="level2">
 <h2 class="anchored" data-anchor-id="option-c-run-scraper-only">Option C: Run Scraper Only</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nationalparksdata <span class="im">import</span> run_scraper</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>run_scraper()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nationalparksdata <span class="im">import</span> run_scraper</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>run_scraper()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
+</section>
+<section id="option-d-find-parks-with-certain-activities" class="level1">
+<h1>Option D: Find Parks With Certain Activities</h1>
+<p>By passing a comma separated list of activities, the function will find the parks with all listed activities.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nationalparksdata <span class="im">import</span> parks_with_activity</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>parks_with_activity(<span class="st">'horseback riding'</span>, <span class="st">'hiking'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="output-files" class="level1">
 <h1>Output Files</h1>
@@ -288,10 +294,10 @@ data/final.csv</code></pre>
 <section id="using-in-jupyter-notebook" class="level1">
 <h1>Using in Jupyter Notebook</h1>
 <p>You may also use the package in Jupyter:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nationalparksdata <span class="im">import</span> refresh_dataset</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> refresh_dataset()</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nationalparksdata <span class="im">import</span> refresh_dataset</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> refresh_dataset()</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="troubleshooting" class="level1">
@@ -309,7 +315,7 @@ data/final.csv</code></pre>
 <section id="error-module-not-found" class="level2">
 <h2 class="anchored" data-anchor-id="error-module-not-found">Error: Module Not Found</h2>
 <p>Reinstall package:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="selenium-errors" class="level2">
@@ -320,7 +326,7 @@ data/final.csv</code></pre>
 </section>
 <section id="uninstalling" class="level1">
 <h1>Uninstalling</h1>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> uninstall nationalparksdata</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> uninstall nationalparksdata</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="authors" class="level1">
@@ -412,7 +418,7 @@ data/final.csv</code></pre>
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/gunnargriffith\.github\.io\/NationalParkAnnualAttendance\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

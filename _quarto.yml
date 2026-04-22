@@ -8,6 +8,11 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+    right:
+      - href: https://github.com/gunnargriffith/NationalParkAnnualAttendance
+        text: GitHub Repo
+      - href: tutorial.qmd
+        text: Tutorial
 
 format:
   html:
