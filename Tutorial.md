@@ -119,6 +119,14 @@ run_scraper()
 
 ---
 
+# Option D: Find Parks With Certain Activities
+By passing a comma separated list of activities, the function will find the parks with all listed activities.
+```python
+from nationalparksdata import parks_with_activity
+parks_with_activity(*activities)
+```
+
+
 # Output Files
 
 The package saves data into the `data/` folder.
