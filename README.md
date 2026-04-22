@@ -23,3 +23,7 @@ Test function to run the package
 ## parks_scraper.ipynb and dataAnalysis.ipynb
 
 Note books with tests and step by step of the final package functions (Not needed to run, just there to show our process)
+
+## *.md
+
+All the other md files are just the visual prompts for the website we are hosting for displaying the project
