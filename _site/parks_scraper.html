@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Steps for success: – National Parks Scraping Project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">National Parks Scraping Project</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/gunnargriffith/NationalParkAnnualAttendance"> 
+<span class="menu-text">GitHub Repo</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Tutorial.html"> 
+<span class="menu-text">Package Tutorial</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Steps for success:</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<ol type="1">
+<li>We need to get an API key for zillow and decide how large of a scope we can do. I say we start small and then if everything is great and easy then we can go bigger.</li>
+<li>We need to find out about the tax website and practice scraping that/get an API.</li>
+<li>Build a function that gains the info about a specific house from zillow.</li>
+<li>Build a function that gains the tax info about a specific house.</li>
+<li>Combine them, testing if it works for one house.</li>
+<li>Loop for a lot of houses.</li>
+<li>Build a dataset that we can save off as a csv.</li>
+<li>Run EDA on the CSV.</li>
+<li>Build a streamlit app that allows for EDA on the dataset.</li>
+<li>Build a website that links to the streamlit.</li>
+<li>Write a report.</li>
+<li>Add the stuff to our personal portfolios</li>
+</ol>
+<div id="34bc0c49" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load environment variables from .env</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>load_dotenv()</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>api_key <span class="op">=</span> os.getenv(<span class="st">'API_KEY'</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://developer.nps.gov/api/v1/parks"</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> {</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'api_key'</span>: api_key,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'limit'</span>: <span class="dv">496</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> requests.get(url, params<span class="op">=</span>params)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> r.json()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="cffc5e71" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>r.status_code</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>200</code></pre>
+</div>
+</div>
+<div id="58ba296b" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.json_normalize(data[<span class="st">'data'</span>])</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[df[<span class="st">'fullName'</span>].<span class="bu">str</span>.contains(<span class="st">"National Park"</span>)]</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[df[<span class="st">'parkCode'</span>] <span class="op">!=</span> <span class="st">'npnh'</span>] <span class="co">#Not a park, but a collection of sites (NO POPULATION)</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[df[<span class="st">'parkCode'</span>] <span class="op">!=</span> <span class="st">'seki'</span>] <span class="co">#Not a park, but a collection of sites (NO POPULATION)</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">url</th>
+<th data-quarto-table-cell-role="th">fullName</th>
+<th data-quarto-table-cell-role="th">parkCode</th>
+<th data-quarto-table-cell-role="th">description</th>
+<th data-quarto-table-cell-role="th">latitude</th>
+<th data-quarto-table-cell-role="th">longitude</th>
+<th data-quarto-table-cell-role="th">latLong</th>
+<th data-quarto-table-cell-role="th">activities</th>
+<th data-quarto-table-cell-role="th">topics</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">operatingHours</th>
+<th data-quarto-table-cell-role="th">addresses</th>
+<th data-quarto-table-cell-role="th">images</th>
+<th data-quarto-table-cell-role="th">weatherInfo</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">designation</th>
+<th data-quarto-table-cell-role="th">multimedia</th>
+<th data-quarto-table-cell-role="th">relevanceScore</th>
+<th data-quarto-table-cell-role="th">contacts.phoneNumbers</th>
+<th data-quarto-table-cell-role="th">contacts.emailAddresses</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">1</th>
+<td>6DA17C86-088E-4B4D-B862-7C1BD5CF236B</td>
+<td>https://www.nps.gov/acad/index.htm</td>
+<td>Acadia National Park</td>
+<td>acad</td>
+<td>Acadia National Park protects the natural beau...</td>
+<td>44.409286</td>
+<td>-68.247501</td>
+<td>lat:44.409286, long:-68.247501</td>
+<td>[{'id': '09DF0950-D319-4557-A57E-04CD2F63FF42'...</td>
+<td>[{'id': '00F3C3F9-2D67-4802-81AE-CCEA5D3BA370'...</td>
+<td>...</td>
+<td>[{'exceptions': [], 'description': 'Acadia Nat...</td>
+<td>[{'postalCode': '04609', 'city': 'Bar Harbor',...</td>
+<td>[{'credit': 'NPS / Kristi Rugg', 'title': 'Sun...</td>
+<td>Located on Mount Desert Island in Maine, Acadi...</td>
+<td>Acadia</td>
+<td>National Park</td>
+<td>[{'title': 'Cultural Connections in the Park',...</td>
+<td>1.0</td>
+<td>[{'phoneNumber': '2072883338', 'description': ...</td>
+<td>[{'description': '', 'emailAddress': 'acadia_i...</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">24</th>
+<td>36240051-018E-4915-B6EA-3F1A7F24FBE4</td>
+<td>https://www.nps.gov/arch/index.htm</td>
+<td>Arches National Park</td>
+<td>arch</td>
+<td>Discover a landscape of contrasting colors, la...</td>
+<td>38.72261844</td>
+<td>-109.5863666</td>
+<td>lat:38.72261844, long:-109.5863666</td>
+<td>[{'id': '09DF0950-D319-4557-A57E-04CD2F63FF42'...</td>
+<td>[{'id': '7F81A0CB-B91F-4896-B9A5-41BE9A54A27B'...</td>
+<td>...</td>
+<td>[{'exceptions': [], 'description': 'Arches Nat...</td>
+<td>[{'postalCode': '84532', 'city': 'Moab', 'stat...</td>
+<td>[{'credit': 'NPS/Veronica Verdin', 'title': 'A...</td>
+<td>Arches is part of the Colorado Plateau, a "hig...</td>
+<td>Arches</td>
+<td>National Park</td>
+<td>[]</td>
+<td>1.0</td>
+<td>[{'phoneNumber': '4357192299', 'description': ...</td>
+<td>[{'description': '', 'emailAddress': 'archinfo...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">29</th>
+<td>B170CCF7-7AB9-48FF-950E-31815FD4DBB2</td>
+<td>https://www.nps.gov/badl/index.htm</td>
+<td>Badlands National Park</td>
+<td>badl</td>
+<td>The rugged beauty of the Badlands draws visito...</td>
+<td>43.68584846</td>
+<td>-102.482942</td>
+<td>lat:43.68584846, long:-102.482942</td>
+<td>[{'id': '5F723BAD-7359-48FC-98FA-631592256E35'...</td>
+<td>[{'id': '7F81A0CB-B91F-4896-B9A5-41BE9A54A27B'...</td>
+<td>...</td>
+<td>[{'exceptions': [], 'description': 'The park i...</td>
+<td>[{'postalCode': '57750', 'city': 'Interior', '...</td>
+<td>[{'credit': 'NPS Photo', 'title': 'Badlands St...</td>
+<td>The Badlands weather is variable and unpredict...</td>
+<td>Badlands</td>
+<td>National Park</td>
+<td>[]</td>
+<td>1.0</td>
+<td>[{'phoneNumber': '6054335361', 'description': ...</td>
+<td>[{'description': '', 'emailAddress': 'badl_inf...</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">35</th>
+<td>C9056F71-7162-4208-8AE9-2D0AEFA594FD</td>
+<td>https://www.nps.gov/bibe/index.htm</td>
+<td>Big Bend National Park</td>
+<td>bibe</td>
+<td>There is a place in Far West Texas where night...</td>
+<td>29.29817767</td>
+<td>-103.2297897</td>
+<td>lat:29.29817767, long:-103.2297897</td>
+<td>[{'id': '5F723BAD-7359-48FC-98FA-631592256E35'...</td>
+<td>[{'id': '7F81A0CB-B91F-4896-B9A5-41BE9A54A27B'...</td>
+<td>...</td>
+<td>[{'exceptions': [], 'description': 'Big Bend N...</td>
+<td>[{'postalCode': '79834', 'city': 'Big Bend Nat...</td>
+<td>[{'credit': 'NPS', 'title': 'Blooming Cenizo',...</td>
+<td>Big Bend is in the Chihuahuan Desert. Sunshine...</td>
+<td>Big Bend</td>
+<td>National Park</td>
+<td>[]</td>
+<td>1.0</td>
+<td>[{'phoneNumber': '432-477-2251', 'description'...</td>
+<td>[{'description': '', 'emailAddress': 'bibe_inf...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">42</th>
+<td>FBF9F793-5114-4B61-A5BA-6F9ADDFDF459</td>
+<td>https://www.nps.gov/bisc/index.htm</td>
+<td>Biscayne National Park</td>
+<td>bisc</td>
+<td>Within sight of Miami, yet worlds away, Biscay...</td>
+<td>25.490587</td>
+<td>-80.21023851</td>
+<td>lat:25.490587, long:-80.21023851</td>
+<td>[{'id': '071BA73C-1D3C-46D4-A53C-00D5602F7F0E'...</td>
+<td>[{'id': '28AEAE85-9DDA-45B6-981B-1CFCDCC61E14'...</td>
+<td>...</td>
+<td>[{'exceptions': [], 'description': 'Launch you...</td>
+<td>[{'postalCode': '33033', 'city': 'Homestead', ...</td>
+<td>[{'credit': 'NPS image by Shaun Wolfe', 'title...</td>
+<td>The park is situated in a subtropical climate,...</td>
+<td>Biscayne</td>
+<td>National Park</td>
+<td>[]</td>
+<td>1.0</td>
+<td>[{'phoneNumber': '786-335-3620', 'description'...</td>
+<td>[{'description': 'If you can't find what you a...</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">461</th>
+<td>72F41D84-A8ED-47FC-935A-2FD28C3C582E</td>
+<td>https://www.nps.gov/wotr/index.htm</td>
+<td>Wolf Trap National Park for the Performing Arts</td>
+<td>wotr</td>
+<td>No matter what your age or taste in shows, you...</td>
+<td>38.93854526</td>
+<td>-77.265089</td>
+<td>lat:38.93854526, long:-77.265089</td>
+<td>[{'id': '09DF0950-D319-4557-A57E-04CD2F63FF42'...</td>
+<td>[{'id': '00F3C3F9-2D67-4802-81AE-CCEA5D3BA370'...</td>
+<td>...</td>
+<td>[{'exceptions': [], 'description': 'Wolf Trap ...</td>
+<td>[{'postalCode': '22182-1643', 'city': 'Vienna'...</td>
+<td>[{'credit': 'NPS Photo / N. Adams', 'title': '...</td>
+<td>The weather at Wolf Trap National Park for the...</td>
+<td>Wolf Trap National Park for the Performing Arts</td>
+<td></td>
+<td>[]</td>
+<td>1.0</td>
+<td>[{'phoneNumber': '7032551800', 'description': ...</td>
+<td>[{'description': '', 'emailAddress': 'wotr_int...</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">465</th>
+<td>B7944940-3FE5-4F9B-80AB-2FD78A4CDD48</td>
+<td>https://www.nps.gov/wrst/index.htm</td>
+<td>Wrangell - St Elias National Park &amp; Preserve</td>
+<td>wrst</td>
+<td>Wrangell-St. Elias is a vast national park tha...</td>
+<td>61.4182147</td>
+<td>-142.6028439</td>
+<td>lat:61.4182147, long:-142.6028439</td>
+<td>[{'id': '09DF0950-D319-4557-A57E-04CD2F63FF42'...</td>
+<td>[{'id': '7F81A0CB-B91F-4896-B9A5-41BE9A54A27B'...</td>
+<td>...</td>
+<td>[{'exceptions': [], 'description': 'The park a...</td>
+<td>[{'postalCode': '99573', 'city': 'Copper Cente...</td>
+<td>[{'credit': 'NPS Photo/ Neal Herbert', 'title'...</td>
+<td>Varies widely depending on location in park an...</td>
+<td>Wrangell - St Elias</td>
+<td>National Park &amp; Preserve</td>
+<td>[]</td>
+<td>1.0</td>
+<td>[{'phoneNumber': '9078225234', 'description': ...</td>
+<td>[{'description': '', 'emailAddress': 'wrst_inf...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">468</th>
+<td>F58C6D24-8D10-4573-9826-65D42B8B83AD</td>
+<td>https://www.nps.gov/yell/index.htm</td>
+<td>Yellowstone National Park</td>
+<td>yell</td>
+<td>On March 1, 1872, Yellowstone became the first...</td>
+<td>44.59824417</td>
+<td>-110.5471695</td>
+<td>lat:44.59824417, long:-110.5471695</td>
+<td>[{'id': '09DF0950-D319-4557-A57E-04CD2F63FF42'...</td>
+<td>[{'id': '69693007-2DF2-4EDE-BB3B-A25EBA72BDF5'...</td>
+<td>...</td>
+<td>[{'exceptions': [], 'description': 'Yellowston...</td>
+<td>[{'postalCode': '82190', 'city': 'Yellowstone ...</td>
+<td>[{'credit': 'NPS/Jim Peaco', 'title': 'Grand P...</td>
+<td>Yellowstone's weather can vary quite a bit, ev...</td>
+<td>Yellowstone</td>
+<td>National Park</td>
+<td>[]</td>
+<td>1.0</td>
+<td>[{'phoneNumber': '307-344-7381', 'description'...</td>
+<td>[{'description': 'Contact Yellowstone's park r...</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">470</th>
+<td>4324B2B4-D1A3-497F-8E6B-27171FAE4DB2</td>
+<td>https://www.nps.gov/yose/index.htm</td>
+<td>Yosemite National Park</td>
+<td>yose</td>
+<td>Not just a great valley, but a shrine to human...</td>
+<td>37.84883288</td>
+<td>-119.5571873</td>
+<td>lat:37.84883288, long:-119.5571873</td>
+<td>[{'id': '09DF0950-D319-4557-A57E-04CD2F63FF42'...</td>
+<td>[{'id': '69693007-2DF2-4EDE-BB3B-A25EBA72BDF5'...</td>
+<td>...</td>
+<td>[{'exceptions': [], 'description': 'Yosemite N...</td>
+<td>[{'postalCode': '95389', 'city': 'Yosemite Nat...</td>
+<td>[{'credit': 'NPS / Cindy Jacoby', 'title': 'Yo...</td>
+<td>Yosemite National Park covers nearly 1,200 squ...</td>
+<td>Yosemite</td>
+<td>National Park</td>
+<td>[]</td>
+<td>1.0</td>
+<td>[{'phoneNumber': '209/372-0200', 'description'...</td>
+<td>[{'description': '', 'emailAddress': 'yose_web...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">473</th>
+<td>41BAB8ED-C95F-447D-9DA1-FCC4E4D808B2</td>
+<td>https://www.nps.gov/zion/index.htm</td>
+<td>Zion National Park</td>
+<td>zion</td>
+<td>Follow the paths where people have walked for ...</td>
+<td>37.29839254</td>
+<td>-113.0265138</td>
+<td>lat:37.29839254, long:-113.0265138</td>
+<td>[{'id': '09DF0950-D319-4557-A57E-04CD2F63FF42'...</td>
+<td>[{'id': '69693007-2DF2-4EDE-BB3B-A25EBA72BDF5'...</td>
+<td>...</td>
+<td>[{'exceptions': [], 'description': 'Zion Natio...</td>
+<td>[{'postalCode': '84767', 'city': 'Springdale',...</td>
+<td>[{'credit': 'NPS/Shane Carte', 'title': 'The W...</td>
+<td>Zion is known for a wide range of weather cond...</td>
+<td>Zion</td>
+<td>National Park</td>
+<td>[]</td>
+<td>1.0</td>
+<td>[{'phoneNumber': '435-772-3256', 'description'...</td>
+<td>[{'description': 'If you cannot find what you ...</td>
+</tr>
+</tbody>
+</table>
+
+<p>61 rows × 26 columns</p>
+</div>
+</div>
+</div>
+<div id="2d02f6af" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Possible use site for ALL nation park annual attendance data</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#https://www.nps.gov/aboutus/visitation-numbers.htm</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="471be11c" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#CSVDictionary.clear()</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>CSVDictionary <span class="op">=</span> {}</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#The park codes from df</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>park_codes <span class="op">=</span> []</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> code <span class="kw">in</span> df[<span class="st">'parkCode'</span>]:</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    park_codes.append(code.upper())</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#park_codes</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="a281a910" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#MAIN SCRAPPER</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Opens each park's page, clicks the CSV button, and downloads the CSV file to a portable folder. Then it loads the CSV into a dataframe, </span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># cleans it, and stores it in a dictionary with the park code as the key. Finally, it deletes the downloaded file.</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> selenium <span class="im">import</span> webdriver</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> selenium.webdriver.common.by <span class="im">import</span> By</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> selenium.webdriver.support.ui <span class="im">import</span> WebDriverWait</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> selenium.webdriver.support <span class="im">import</span> expected_conditions <span class="im">as</span> EC</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> glob</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> shutil</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> park_code <span class="kw">in</span> park_codes:</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Processing </span><span class="sc">{</span>park_code<span class="sc">}</span><span class="ss">..."</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1. Setup portable download folder</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    download_dir <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"downloads"</span>)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    os.makedirs(download_dir, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    options <span class="op">=</span> webdriver.ChromeOptions()</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    prefs <span class="op">=</span> {</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">"download.default_directory"</span>: download_dir,</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">"download.prompt_for_download"</span>: <span class="va">False</span>,</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">"download.directory_upgrade"</span>: <span class="va">True</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    options.add_experimental_option(<span class="st">"prefs"</span>, prefs)</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># IMPORTANT: only create driver ONCE</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    driver <span class="op">=</span> webdriver.Chrome(options<span class="op">=</span>options)</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2. Open page</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>    url <span class="op">=</span> <span class="ss">f"https://irma.nps.gov/Stats/SSRSReports/Park%20Specific%20Reports/Annual%20Park%20Recreation%20Visitation%20(1904%20-%20Last%20Calendar%20Year)?Park=</span><span class="sc">{</span>park_code<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    driver.get(url)</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>    time.sleep(<span class="dv">5</span>)</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 3. Find CSV button in iframes</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>    iframes <span class="op">=</span> driver.find_elements(By.TAG_NAME, <span class="st">"iframe"</span>)</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>    clicked <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, frame <span class="kw">in</span> <span class="bu">enumerate</span>(iframes):</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>        driver.switch_to.frame(frame)</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>            csv_link <span class="op">=</span> WebDriverWait(driver, <span class="dv">5</span>).until(</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>                EC.presence_of_element_located((By.XPATH, <span class="st">"//a[contains(text(),'CSV')]"</span>))</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>            driver.execute_script(<span class="st">"arguments[0].click();"</span>, csv_link)</span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"Clicked CSV in iframe </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>            clicked <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span>:</span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>            driver.switch_to.default_content()</span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>    driver.switch_to.default_content()</span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 4. Wait for download to finish</span></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>    timeout <span class="op">=</span> <span class="dv">25</span></span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>    start <span class="op">=</span> time.time()</span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>    latest_file <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> time.time() <span class="op">-</span> start <span class="op">&lt;</span> timeout:</span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>        files <span class="op">=</span> glob.glob(os.path.join(download_dir, <span class="st">"*.csv"</span>))</span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> files:</span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a>            latest_file <span class="op">=</span> <span class="bu">max</span>(files, key<span class="op">=</span>os.path.getmtime)</span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">1</span>)</span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 5. Rename the downloaded file to park-specific name</span></span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>    new_file_path <span class="op">=</span> os.path.join(download_dir, <span class="ss">f"</span><span class="sc">{</span>park_code<span class="sc">}</span><span class="ss">.csv"</span>)</span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a>    shutil.move(latest_file, new_file_path)</span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a>    driver.quit()</span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 6. Load CSV safely</span></span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(</span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a>        new_file_path,</span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a>        skiprows<span class="op">=</span><span class="dv">3</span>   <span class="co"># skips Title + blank lines</span></span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>    <span class="co"># clean numbers</span></span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"RecreationVisitors"</span>] <span class="op">=</span> (</span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a>        df[<span class="st">"RecreationVisitors"</span>].<span class="bu">str</span>.replace(<span class="st">","</span>, <span class="st">""</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a>    CSVDictionary[park_code] <span class="op">=</span> df</span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a>    <span class="co"># delete file</span></span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a>    file_path <span class="op">=</span> os.path.join(download_dir, <span class="ss">f"</span><span class="sc">{</span>park_code<span class="sc">}</span><span class="ss">.csv"</span>)</span>
+<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a>    os.remove(file_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing ACAD...
+Clicked CSV in iframe 0
+Processing ARCH...
+Clicked CSV in iframe 0
+Processing BADL...
+Clicked CSV in iframe 0
+Processing BIBE...
+Clicked CSV in iframe 0
+Processing BISC...
+Clicked CSV in iframe 0
+Processing BLCA...
+Clicked CSV in iframe 0
+Processing BRCA...
+Clicked CSV in iframe 0
+Processing CANY...
+Clicked CSV in iframe 0
+Processing CARE...
+Clicked CSV in iframe 0
+Processing CAVE...
+Clicked CSV in iframe 0
+Processing CHIS...
+Clicked CSV in iframe 0
+Processing CONG...
+Clicked CSV in iframe 0
+Processing CRLA...
+Clicked CSV in iframe 0
+Processing CUVA...
+Clicked CSV in iframe 0
+Processing DEVA...
+Clicked CSV in iframe 0
+Processing DENA...
+Clicked CSV in iframe 0
+Processing DRTO...
+Clicked CSV in iframe 0
+Processing EVER...
+Clicked CSV in iframe 0
+Processing GAAR...
+Clicked CSV in iframe 0
+Processing JEFF...
+Clicked CSV in iframe 0
+Processing GLBA...
+Clicked CSV in iframe 0
+Processing GLAC...
+Clicked CSV in iframe 0
+Processing GRCA...
+Clicked CSV in iframe 0
+Processing GRTE...
+Clicked CSV in iframe 0
+Processing GRBA...
+Clicked CSV in iframe 0
+Processing GRSA...
+Clicked CSV in iframe 0
+Processing GRSM...
+Clicked CSV in iframe 0
+Processing GUMO...
+Clicked CSV in iframe 0
+Processing HALE...
+Clicked CSV in iframe 0
+Processing HAVO...
+Clicked CSV in iframe 0
+Processing HOSP...
+Clicked CSV in iframe 0
+Processing INDU...
+Clicked CSV in iframe 0
+Processing ISRO...
+Clicked CSV in iframe 0
+Processing JOTR...
+Clicked CSV in iframe 0
+Processing KATM...
+Clicked CSV in iframe 0
+Processing KEFJ...
+Clicked CSV in iframe 0
+Processing KOVA...
+Clicked CSV in iframe 0
+Processing LACL...
+Clicked CSV in iframe 0
+Processing LAVO...
+Clicked CSV in iframe 0
+Processing MACA...
+Clicked CSV in iframe 0
+Processing MEVE...
+Clicked CSV in iframe 0
+Processing MORA...
+Clicked CSV in iframe 0
+Processing NPSA...
+Clicked CSV in iframe 0
+Processing NERI...
+Clicked CSV in iframe 0
+Processing NOCA...
+Clicked CSV in iframe 0
+Processing OLYM...
+Clicked CSV in iframe 0
+Processing PEFO...
+Clicked CSV in iframe 0
+Processing PINN...
+Clicked CSV in iframe 0
+Processing ROMO...
+Clicked CSV in iframe 0
+Processing SAGU...
+Clicked CSV in iframe 0
+Processing SHEN...
+Clicked CSV in iframe 0
+Processing THRO...
+Clicked CSV in iframe 0
+Processing VIIS...
+Clicked CSV in iframe 0
+Processing VOYA...
+Clicked CSV in iframe 0
+Processing WHSA...
+Clicked CSV in iframe 0
+Processing WICA...
+Clicked CSV in iframe 0
+Processing WOTR...
+Clicked CSV in iframe 0
+Processing WRST...
+Clicked CSV in iframe 0
+Processing YELL...
+Clicked CSV in iframe 0
+Processing YOSE...
+Clicked CSV in iframe 0
+Processing ZION...
+Clicked CSV in iframe 0</code></pre>
+</div>
+</div>
+<div id="8701b64a" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Quick check of keys for confirmation</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>CSVDictionary.keys()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>dict_keys(['ACAD', 'ARCH', 'BADL', 'BIBE', 'BISC', 'BLCA', 'BRCA', 'CANY', 'CARE', 'CAVE', 'CHIS', 'CONG', 'CRLA', 'CUVA', 'DEVA', 'DENA', 'DRTO', 'EVER', 'GAAR', 'JEFF', 'GLBA', 'GLAC', 'GRCA', 'GRTE', 'GRBA', 'GRSA', 'GRSM', 'GUMO', 'HALE', 'HAVO', 'HOSP', 'INDU', 'ISRO', 'JOTR', 'KATM', 'KEFJ', 'KOVA', 'LACL', 'LAVO', 'MACA', 'MEVE', 'MORA', 'NPSA', 'NERI', 'NOCA', 'OLYM', 'PEFO', 'PINN', 'ROMO', 'SAGU', 'SHEN', 'THRO', 'VIIS', 'VOYA', 'WHSA', 'WICA', 'WOTR', 'WRST', 'YELL', 'YOSE', 'ZION'])</code></pre>
+</div>
+</div>
+<div id="1b137791" class="cell" data-execution_count="32">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Full read of one of the dictionary entries</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>CSVDictionary[<span class="st">"ACAD"</span>].shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<pre><code>(107, 3)</code></pre>
+</div>
+</div>
+<div id="9eaa07a3" class="cell" data-execution_count="31">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create path to data folder</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>data_path <span class="op">=</span> Path(<span class="st">"data"</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>data_path.mkdir(exist_ok<span class="op">=</span><span class="va">True</span>)  <span class="co"># ensures folder exists</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Save dataframe</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>df.to_csv(data_path <span class="op">/</span> <span class="st">"parks_df.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert dictionary safely</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>safe_dict <span class="op">=</span> {</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    k: v.to_dict(orient<span class="op">=</span><span class="st">"records"</span>)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k, v <span class="kw">in</span> CSVDictionary.items()</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Save dictionary</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(data_path <span class="op">/</span> <span class="st">"csv_dictionary.json"</span>, <span class="st">"w"</span>) <span class="im">as</span> f:</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    json.dump(safe_dict, f, indent<span class="op">=</span><span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
